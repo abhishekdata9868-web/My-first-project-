@@ -10,6 +10,9 @@ jobs:
   test-backend:
     runs-on: ubuntu-latest
 
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,3 +32,29 @@ jobs:
       - name: Verify FastAPI app imports
         working-directory: backend
         run: python -c "from main import app; print('FastAPI app imported successfully')"
+
+      - name: Test OpenRouter API connection
+        working-directory: backend
+        run: |
+          python - <<'PY'
+          import os
+          from openai import OpenAI
+
+          key = os.environ.get("OPENROUTER_API_KEY")
+          if not key:
+              raise SystemExit("OPENROUTER_API_KEY GitHub Secret is missing")
+
+          client = OpenAI(
+              base_url="https://openrouter.ai/api/v1",
+              api_key=key,
+          )
+
+          response = client.chat.completions.create(
+              model="openrouter/free",
+              messages=[{"role": "user", "content": "Reply with exactly: API_TEST_OK"}],
+          )
+
+          reply = response.choices[0].message.content or ""
+          print("OpenRouter API request completed successfully")
+          print("Response received:", reply[:100])
+          PY
