@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini GPT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Mini GPT</h1>
+      <p>Your simple AI assistant</p>
+    </header>
+
+    <section id="chat" class="chat" aria-live="polite"></section>
+
+    <form id="chat-form" class="composer">
+      <textarea id="message" rows="2" placeholder="Message Mini GPT..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
