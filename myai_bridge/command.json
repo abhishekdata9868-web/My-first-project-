@@ -1,7 +1,6 @@
 {
+  "id": "safe-test-001",
   "operation": "verify",
   "target": "/content/drive/MyDrive/Colab/MYAI/autonomous_agent_v8_5",
-  "requested_by": "CHATGPT",
-  "mode": "READ_ONLY",
-  "safety_required": true
+  "mode": "READ_ONLY"
 }
