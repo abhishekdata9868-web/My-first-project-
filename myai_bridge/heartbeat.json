@@ -1,13 +1,9 @@
 {
-  "system": "MYAI_SAFE_BRIDGE",
-  "version": "3.0",
   "status": "ONLINE",
-  "timestamp_utc": "2026-09-11T19:47:20.901713+00:00",
   "mode": "READ_ONLY",
-  "authorities": {
-    "repair_authority": false,
-    "write_authority": false,
-    "delete_authority": false
-  },
-  "project": "/content/drive/MyDrive/Colab/MYAI/autonomous_agent_v8_5"
+  "write_authority": false,
+  "repair_authority": false,
+  "delete_authority": false,
+  "arbitrary_shell": false,
+  "timestamp": "2026-09-11T19:55:45.536226+00:00"
 }
